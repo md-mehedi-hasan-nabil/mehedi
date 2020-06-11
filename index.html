@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./navbar-fixed.css">
+    <style>
+        .loader {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            margin: 200px auto;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            position: relative;
+            animation: loader 2s linear infinite;
+        }
+
+        .loader span {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            text-align: center;
+            line-height: 100px;
+            font-size: 15px;
+            color: #2c3e50;
+            background-color: transparent;
+            animation: loader2 2s linear infinite;
+        }
+
+        .loader::before,
+        .loader::after {
+            position: absolute;
+            content: '';
+            top: 0px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .loader::after {
+            border-top: 8px solid #d35400;
+            transform: rotate(240deg);
+        }
+
+        .loader::before {
+            border-top: 8px solid #16a085;
+            transform: rotate(120deg);
+        }
+
+        @keyframes loader {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes loader2 {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .image {
+            background-image: url(./image/Capture.PNG);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            width: 80%;
+            height: 85vh;
+            margin: auto;
+        }
+
+        #effect:hover {
+            background-color: rgb(126, 128, 231) !important;
+            transform: scale(1.1);
+            transition: 0.5s;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+            transition: .5s ease;
+            background-color: #008CBA;
+        }
+
+        .card:hover .overlay {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section id="load">
+        <nav class="navbar navbar-light navbar-expand-md" style="background-color: rgba(248, 239, 239, 0.95);">
+            <div class="container">
+                <a href="#" class="" style="width: 5%;"><img src="./image/logo.png" alt="Logo" style="width: 100%;"></a>
+                <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#Menu"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="Menu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="#Home" class="nav-link mx-2">Home</a></li>
+                        <li class="nav-item"><a href="#About" class="nav-link mx-2">About</a></li>
+                        <li class="nav-item"><a href="#Serviecs" class="nav-link mx-2">Services</a></li>
+                        <li class="nav-item"><a href="#Skills" class="nav-link mx-2">Skills</a></li>
+                        <li class="nav-item"><a href="#" class="btn btn-primary ml-md-4" data-toggle="modal" data-target="#login">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+
+
+        <div class="container">
+            <div class="modal" id="login">
+                <div class="modal-dialog bg-primary">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title text-info">Send Message</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="Name" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="Email" placeholder="Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea name="Message" class="form-control"></textarea>
+                                </div>
+                                <input type="submit" value="Send" class="btn btn-primary w-100">
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid" id="Home">
+            <div class="image">
+                <div class="card h-100" id="card" style="background-color: rgba(51, 51, 51, 0.822);">
+                    <div class="card-img-overlay text-light">
+                        <div class="container" style="margin-top: 15%;">
+                            <p class="text-center font-weight-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus voluptates molestias maiores,<br> nobis assumenda repellat atque minima natus numquam vero!</p>
+                            <br>
+                            <h2 class="text-center">I am a Web Designer and<br> Web Developer.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="pt-4" id="About">
+            <div class="container my-4 py-4">
+                <div class="container my-4">
+                    <h2 class="text-center text-primary">About us</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 my-4">
+                        <div class="card">
+                            <div class="card-body text-center bg-info text-white" id="effect" style="transition: 0.5s;">
+                                <svg class="bi bi-briefcase" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M0 12.5A1.5 1.5 0 001.5 14h13a1.5 1.5 0 001.5-1.5v-6h-1v6a.5.5 0 01-.5.5h-13a.5.5 0 01-.5-.5v-6H0v6z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M0 4.5A1.5 1.5 0 011.5 3h13A1.5 1.5 0 0116 4.5v2.384l-7.614 2.03a1.5 1.5 0 01-.772 0L0 6.884V4.5zM1.5 4a.5.5 0 00-.5.5v1.616l6.871 1.832a.5.5 0 00.258 0L15 6.116V4.5a.5.5 0 00-.5-.5h-13zM5 2.5A1.5 1.5 0 016.5 1h3A1.5 1.5 0 0111 2.5V3h-1v-.5a.5.5 0 00-.5-.5h-3a.5.5 0 00-.5.5V3H5v-.5z" clip-rule="evenodd" />
+                                </svg>
+                                <h3>Information</h3>
+                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, ratione.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-4">
+                        <div class="card">
+                            <div class="card-body text-center bg-info text-white" id="effect" style="transition: 0.5s;">
+                                <svg class="bi bi-controller" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M11.119 2.693c.904.19 1.75.495 2.235.98.407.408.779 1.05 1.094 1.772.32.733.599 1.591.805 2.466.206.875.34 1.78.364 2.606.024.815-.059 1.602-.328 2.21a1.42 1.42 0 01-1.445.83c-.636-.067-1.115-.394-1.513-.773a11.307 11.307 0 01-.739-.809c-.126-.147-.25-.291-.368-.422-.728-.804-1.597-1.527-3.224-1.527-1.627 0-2.496.723-3.224 1.527-.119.131-.242.275-.368.422-.243.283-.494.576-.739.81-.398.378-.877.705-1.513.772a1.42 1.42 0 01-1.445-.83c-.27-.608-.352-1.395-.329-2.21.024-.826.16-1.73.365-2.606.206-.875.486-1.733.805-2.466.315-.722.687-1.364 1.094-1.772.486-.485 1.331-.79 2.235-.98.932-.196 2.03-.292 3.119-.292 1.089 0 2.187.096 3.119.292zm-6.032.979c-.877.185-1.469.443-1.733.708-.276.276-.587.783-.885 1.465a13.748 13.748 0 00-.748 2.295 12.351 12.351 0 00-.339 2.406c-.022.755.062 1.368.243 1.776a.42.42 0 00.426.24c.327-.034.61-.199.929-.502.212-.202.4-.423.615-.674.133-.156.276-.323.44-.505C4.861 9.97 5.978 9.026 8 9.026s3.139.943 3.965 1.855c.164.182.307.35.44.505.214.25.403.472.615.674.318.303.601.468.929.503a.42.42 0 00.426-.241c.18-.408.265-1.02.243-1.776a12.354 12.354 0 00-.339-2.406 13.753 13.753 0 00-.748-2.295c-.298-.682-.61-1.19-.885-1.465-.264-.265-.856-.523-1.733-.708-.85-.179-1.877-.27-2.913-.27-1.036 0-2.063.091-2.913.27z" clip-rule="evenodd" />
+                                    <path d="M11.5 6.026a.5.5 0 11-1 0 .5.5 0 011 0zm-1 1a.5.5 0 11-1 0 .5.5 0 011 0zm2 0a.5.5 0 11-1 0 .5.5 0 011 0zm-1 1a.5.5 0 11-1 0 .5.5 0 011 0zm-7-2.5h1v3h-1v-3z" />
+                                    <path d="M3.5 6.526h3v1h-3v-1zM3.051 3.26a.5.5 0 01.354-.613l1.932-.518a.5.5 0 01.258.966l-1.932.518a.5.5 0 01-.612-.354zm9.976 0a.5.5 0 00-.353-.613l-1.932-.518a.5.5 0 10-.259.966l1.932.518a.5.5 0 00.612-.354z" />
+                                </svg>
+                                <h3>Work</h3>
+                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, ratione.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 my-4">
+                        <div class="card">
+                            <div class="card-body text-center bg-info text-white" id="effect" style="transition: 0.5s;">
+                                <svg class="bi bi-envelope" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M14 3H2a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM2 2a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H2z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd" d="M.071 4.243a.5.5 0 01.686-.172L8 8.417l7.243-4.346a.5.5 0 01.514.858L8 9.583.243 4.93a.5.5 0 01-.172-.686z" clip-rule="evenodd" />
+                                    <path d="M6.752 8.932l.432-.252-.504-.864-.432.252.504.864zm-6 3.5l6-3.5-.504-.864-6 3.5.504.864zm8.496-3.5l-.432-.252.504-.864.432.252-.504.864zm6 3.5l-6-3.5.504-.864 6 3.5-.504.864z" />
+                                </svg>
+                                <h3>Skill</h3>
+                                <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, ratione.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-4" id="Serviecs">
+            <div class="container">
+                <h2 class="py-4 mt-4 text-center text-primary">Our Serviecs</h2>
+            </div>
+            <br>
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./image/1.jpg" alt="" style="width: 100%;position: relative;">
+                            <div class="card-body">
+                                <h3 class="card-title">Card title</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, perspiciatis.</p>
+                                <a href="#" class="btn btn-primary">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./image/2.jpg" alt="" style="width: 100%;">
+                            <div class="card-body">
+                                <h3 class="card-title">Card title</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, perspiciatis.</p>
+                                <a href="#" class="btn btn-primary">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="./image/3.jpg" alt="" style="width: 100%;">
+                            <div class="card-body">
+                                <h3 class="card-title">Card title</h3>
+                                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, perspiciatis.</p>
+                                <a href="#" class="btn btn-primary">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="Skills" class="py-2">
+            <div class="container my-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-header text-center">Programing Skills</h3>
+
+                        <div class="progress my-4">
+                            <span class="mr-4">HTML</span>
+                            <div class="progress-bar" style="width: 70%;">70%</div>
+                        </div>
+                        <div class="progress my-4">
+                            <span class="mr-4">CSS</span>
+                            <div class="progress-bar" style="width: 80%;">80%</div>
+                        </div>
+                        <div class="progress my-4">
+                            <span class="mr-4">JavaScript</span>
+                            <div class="progress-bar" style="width: 65%;">65%</div>
+                        </div>
+                        <div class="progress my-4">
+                            <span class="mr-4">Jquery</span>
+                            <div class="progress-bar" style="width: 85%;">85%</div>
+                        </div>
+                        <div class="progress my-4">
+                            <span class="mr-4">Bootstrap</span>
+                            <div class="progress-bar" style="width: 65%;">65%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <div class="container-fluid table-dark" id="contact">
+            <div class="row">
+                <div class="col p-4">
+                    <div style="display: inline-block;">
+                        <svg class="bi bi-people-circle" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z" />
+                            <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+                            <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div style="display: inline-block;">
+                        <h3 text-white>Education</h3>
+                    </div>
+                    <div class="container">
+                        <div style="display: inline-block;margin: 5% 0; ">
+                            <svg class="bi bi-phone" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M11 1H5a1 1 0 00-1 1v12a1 1 0 001 1h6a1 1 0 001-1V2a1 1 0 00-1-1zM5 0a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V2a2 2 0 00-2-2H5z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd" d="M8 14a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div style="display: inline-block;">
+                            <span>mehedihasan@gmail.com</span><br>
+                            <span>01254477</span>
+                        </div>
+                    </div>
+                    <div class="container">
+
+                    </div>
+                </div>
+                <div class="col">
+                    <table class="table">
+                        <tr>
+                            <th>Company</th>
+                            <th>Contact</th>
+                            <th>Country</th>
+                        </tr>
+                        <tr>
+                            <td>Alfreds Futterkiste</td>
+                            <td>Maria Anders</td>
+                            <td>Germany</td>
+                        </tr>
+                        <tr>
+                            <td>Centro comercial Moctezuma</td>
+                            <td>Francisco Chang</td>
+                            <td>Mexico</td>
+                        </tr>
+                        <tr>
+                            <td>Ernst Handel</td>
+                            <td>Roland Mendel</td>
+                            <td>Austria</td>
+                        </tr>
+                        <tr>
+                            <td>Island Trading</td>
+                            <td>Helen Bennett</td>
+                            <td>UK</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="container">
+                    <p><a href="#">Education WordPress Theme by</a>ThimPress. Powered by Bootstrap 4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <script src="./navbar-fixed.js"></script>
+    <script>
+        document.addEventListener('scroll', function() {
+            let nav = document.getElementsByTagName('nav')[0];
+            if (document.documentElement.scrollTop > 350) {
+                nav.classList.add('fixed-top');
+            }
+            if (document.documentElement.scrollTop < 350) {
+                nav.classList.remove('fixed-top');
+            }
+        });
+        
+        let body = document.getElementsByTagName('body')[0];
+        let load = document.querySelector('#load');
+        load.style.display = 'none';
+        window.addEventListener('load', function() {
+            let newEl = document.createElement('div');
+            body.appendChild(newEl);
+            newEl.className = 'loader';
+            let items = '<span>Loading...</span>';
+            newEl.innerHTML = items;
+            setInterval(() => {
+                newEl.style.display = 'none';
+                load.style.display = 'block';
+            }, 500);
+
+
+        });
+
+    </script>
+</body>
+
+</html>
